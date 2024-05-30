@@ -36,7 +36,7 @@ resource "aws_api_gateway_method" "gaeste_loeschen_methode" {
 resource "aws_api_gateway_integration" "gaeste_erstellen_integration" {
   rest_api_id = aws_api_gateway_rest_api.gaestebuch_api.id
   resource_id = aws_api_gateway_resource.gaeste_erstellen.id
-  http_method = aws_api_gateway_method.create_gast.http_method
+  http_method = aws_api_gateway_method.gaeste_erstellen_methode.http_method
   type = "AWS_PROXY"
   integration_http_method = "POST"
   uri = aws_lambda_function.gaestebuch_api.invoke_arn
@@ -46,7 +46,7 @@ resource "aws_api_gateway_integration" "gaeste_erstellen_integration" {
 resource "aws_api_gateway_integration" "gaeste_loeschen_integration" {
   rest_api_id = aws_api_gateway_rest_api.gaestebuch_api.id
   resource_id = aws_api_gateway_resource.gaeste_loeschen.id
-  http_method = aws_api_gateway_method.delete_gast.http_method
+  http_method = aws_api_gateway_method.gaeste_loeschen_methode.http_method
   type = "AWS_PROXY"
   integration_http_method = "POST"
   uri = aws_lambda_function.gaestebuch_api.invoke_arn
