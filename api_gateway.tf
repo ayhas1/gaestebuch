@@ -56,5 +56,5 @@ resource "aws_api_gateway_integration" "gaeste_loeschen_integration" {
 resource "aws_api_gateway_deployment" "gaestebuch_api_deployment" {
   rest_api_id = aws_api_gateway_rest_api.gaestebuch_api.id
   stage_name = var.env
-  depends_on = [ aws_api_gateway_integration.create_gast_integration, aws_api_gateway_integration.delete_gast_integration]
+  depends_on = [ aws_api_gateway_integration.gaeste_erstellen_integration, aws_api_gateway_integration.gaeste_loeschen_integration]
 }
